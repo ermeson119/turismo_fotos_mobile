@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
-import com.example.myapplication.Trabalho;
+import com.example.myapplication.model.entity.Trabalho;
 import java.util.List;
 
 public class TrabalhoAdapter extends RecyclerView.Adapter<TrabalhoAdapter.ViewHolder> {

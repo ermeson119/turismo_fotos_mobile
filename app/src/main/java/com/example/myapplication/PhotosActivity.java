@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.adapter.FotoAdapter;
+import com.example.myapplication.model.conexao.DatabaseProvider;
+import com.example.myapplication.model.entity.Foto;
+
 import java.util.List;
 
 public class PhotosActivity extends AppCompatActivity {

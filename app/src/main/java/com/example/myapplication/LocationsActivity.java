@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.adapter.TrabalhoAdapter;
+import com.example.myapplication.model.conexao.DatabaseProvider;
+import com.example.myapplication.model.entity.Trabalho;
+
 import java.util.List;
 
 public class LocationsActivity extends AppCompatActivity {

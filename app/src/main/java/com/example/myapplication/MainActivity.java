@@ -45,7 +45,6 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
     private LifecycleCameraController cameraController;
     private static final int PERMISSION_CODE = 1;
     private MapView map;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         btnVerLocalizacoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LocationsActivity.class);
+                Intent intent = new Intent(MainActivity.this, LocalizacaoActivity.class);
                 startActivity(intent);
             }
         });
@@ -118,33 +117,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void salvarFoto() {
-        File file = new File(getExternalFilesDir(null), "foto_" + System.currentTimeMillis() + ".jpg");
-        ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
-
-        cameraController.takePicture(outputFileOptions, ContextCompat.getMainExecutor(this),
-                new ImageCapture.OnImageSavedCallback() {
-                    @Override
-                    public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
-                        Toast.makeText(MainActivity.this, "Foto salva em: " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onError(@NonNull ImageCaptureException exception) {
-                        Toast.makeText(MainActivity.this, "Erro ao salvar foto", Toast.LENGTH_SHORT).show();
-                        exception.printStackTrace();
-                    }
-                });
-    }
-
-    private boolean isNetworkAvailable() {
+    private boolean situacaoDaRede() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 
     private void mostrarMapa() {
-        if (!isNetworkAvailable()) {
+        if (!situacaoDaRede()) {
             Toast.makeText(this, "Sem conexão com a internet", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -232,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                         fotosTrabalhoAtual.add(file.getAbsolutePath());
-                        Toast.makeText(MainActivity.this, "Foto salva!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Foto tirada!", Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onError(@NonNull ImageCaptureException exception) {

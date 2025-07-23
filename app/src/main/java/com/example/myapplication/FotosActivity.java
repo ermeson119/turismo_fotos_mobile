@@ -10,7 +10,7 @@ import com.example.myapplication.model.entity.Foto;
 
 import java.util.List;
 
-public class PhotosActivity extends AppCompatActivity {
+public class FotosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,7 +11,7 @@ import com.example.myapplication.model.entity.Trabalho;
 
 import java.util.List;
 
-public class LocationsActivity extends AppCompatActivity {
+public class LocalizacaoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class LocationsActivity extends AppCompatActivity {
 
         List<Trabalho> trabalhos = DatabaseProvider.getDatabase(this).trabalhoDao().listarTodos();
         TrabalhoAdapter adapter = new TrabalhoAdapter(trabalhos, trabalho -> {
-            Intent intent = new Intent(LocationsActivity.this, PhotosActivity.class);
+            Intent intent = new Intent(LocalizacaoActivity.this, FotosActivity.class);
             intent.putExtra("idTrabalho", trabalho.id);
             startActivity(intent);
         });
